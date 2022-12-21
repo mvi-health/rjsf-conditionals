@@ -22,7 +22,8 @@
     "playground:run:dev": "webpack serve --config webpack.playground.dev.js --mode development",
     "playground:run:dist": "npm run playground:build && http-server build --port 8080",
     "start": "npm run playground:run:dev",
-    "test": "jest"
+    "test": "jest",
+    "postinstall": "patch-package"
   },
   "jest": {
     "verbose": true,
@@ -58,6 +59,7 @@
   "dependencies": {
     "deepcopy": "^2.0.0",
     "lodash.isequalwith": "^4.4.0",
+    "patch-package": "^6.5.0",
     "selectn": "^1.1.2"
   },
   "devDependencies": {

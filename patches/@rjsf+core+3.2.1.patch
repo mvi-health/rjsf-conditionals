@@ -1,0 +1,13 @@
+diff --git a/node_modules/@rjsf/core/dist/es/components/Form.js b/node_modules/@rjsf/core/dist/es/components/Form.js
+index 57b6cb9..b4d0f0a 100644
+--- a/node_modules/@rjsf/core/dist/es/components/Form.js
++++ b/node_modules/@rjsf/core/dist/es/components/Form.js
+@@ -150,7 +150,7 @@ function (_Component) {
+       }
+ 
+       _this.setState(state, function () {
+-        return _this.props.onChange && _this.props.onChange(_this.state);
++        return _this.props.onChange && _this.props.onChange(state);
+       });
+     });
+ 
