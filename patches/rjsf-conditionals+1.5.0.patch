@@ -1,0 +1,23 @@
+diff --git a/node_modules/rjsf-conditionals/dist/es/utils.js b/node_modules/rjsf-conditionals/dist/es/utils.js
+index 277e38d..757b5aa 100644
+--- a/node_modules/rjsf-conditionals/dist/es/utils.js
++++ b/node_modules/rjsf-conditionals/dist/es/utils.js
+@@ -28,11 +28,13 @@ export const toArray = field => {
+   }
+ };
+ export const toError = message => {
+-  if (env.isDevelopment()) {
+-    throw new ReferenceError(message);
+-  } else {
+-    logWarning(message);
+-  }
++  // if (env.isDevelopment()) { // MVI we don't want to crash
++  //   throw new ReferenceError(message);
++  // } else {
++  console.debug(message); // MVI want this to show up just as a log. It can be benign when there are multiple forms showing
++  console.debug('This may be benign if you are using both drawer and overlays'); // MVI
++  // logWarning(message);
++  // }
+ };
+ export const logWarning = message => {
+   console.warn(message);
