@@ -7,9 +7,10 @@ exports.findRelSchemaAndField = exports.deepEquals = void 0;
 exports.findRelUiSchema = findRelUiSchema;
 exports.toError = exports.toArray = exports.logWarning = void 0;
 var _utils = require("json-rules-engine-simplified/lib/utils");
-var _env = _interopRequireDefault(require("./env"));
 var _isEqualWith = _interopRequireDefault(require("lodash/isEqualWith"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+// import env from "./env";
+
 /** Cloned from @rjsf/utils v5 to make it work in older rjsf versions
  *
  * @param a - The first element to compare
@@ -36,11 +37,13 @@ const toArray = field => {
 };
 exports.toArray = toArray;
 const toError = message => {
-  if (_env.default.isDevelopment()) {
-    throw new ReferenceError(message);
-  } else {
-    logWarning(message);
-  }
+  // if (env.isDevelopment()) { // MVI we don't want to crash
+  //   throw new ReferenceError(message);
+  // } else {
+  console.debug(message); // MVI want this to show up just as a log. It can be benign when there are multiple forms showing
+  console.debug('This may be benign if you are using both drawer and overlays'); // MVI
+  // logWarning(message);
+  // }
 };
 exports.toError = toError;
 const logWarning = message => {
